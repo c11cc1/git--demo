@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Portal - Bootstrap 5 Admin Dashboard Template For Developers</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
+	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- FontAwesome JS-->
+<!--	<script defer src="assets/plugins/fontawesome/js/all.min.js"></script>-->
+
+
+<!--	<script src="jq/jquery-3.7.1.js"></script>-->
+	<!-- <script src="mysql/require.js"></script> -->
+
+
+	<!-- App CSS -->
+<!--	<link id="theme-style" rel="stylesheet" href="assets/css/portal.css">-->
+	<link href="{{ url_for('static', filename='../static/assets/css/portal.css') }}" rel="stylesheet">
+
+</head>
+
+<body class="app">
+	<header class="app-header fixed-top">
+		<div class="app-header-inner">
+			<div class="container-fluid py-2">
+				<div class="app-header-content">
+					<div class="row justify-content-between align-items-center">
+
+						<div class="col-auto">
+							<a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
+									role="img">
+									<title>Menu</title>
+									<path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10"
+										stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path>
+								</svg>
+							</a>
+						</div><!--//col-->
+						<div class="search-mobile-trigger d-sm-none col">
+							<i class="search-mobile-trigger-icon fas fa-search"></i>
+						</div><!--//col-->
+						<div class="app-search-box col">
+							<form class="app-search-form">
+								<input type="text" placeholder="Search..." name="search"
+									class="form-control search-input">
+								<button type="submit" class="btn search-btn btn-primary" value="Search"><i
+										class="fas fa-search"></i></button>
+							</form>
+						</div><!--//app-search-box-->
+
+						<div class="app-utilities col-auto">
+							<div class="app-utility-item app-notifications-dropdown dropdown">
+								<a class="dropdown-toggle no-toggle-arrow" id="notifications-dropdown-toggle"
+									data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"
+									title="Notifications">
+
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bell icon"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z" />
+										<path fill-rule="evenodd"
+											d="M8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+									</svg>
+									<span class="icon-badge">3</span>
+								</a><!--//dropdown-toggle-->
+
+								<div class="dropdown-menu p-0" aria-labelledby="notifications-dropdown-toggle">
+									<div class="dropdown-menu-header p-3">
+										<h5 class="dropdown-menu-title mb-0">Notifications</h5>
+									</div><!--//dropdown-menu-title-->
+									<div class="dropdown-menu-content">
+										<div class="item p-3">
+											<div class="row gx-2 justify-content-between align-items-center">
+												<div class="col-auto">
+													<img class="profile-image"
+														src="../static/assets/images/profiles/profile-1.png" alt="">
+												</div><!--//col-->
+												<div class="col">
+													<div class="info">
+														<div class="desc">Amy shared a file with you. Lorem ipsum dolor
+															sit amet, consectetur adipiscing elit. </div>
+														<div class="meta"> 2 hrs ago</div>
+													</div>
+												</div><!--//col-->
+											</div><!--//row-->
+											<a class="link-mask" href="notifications.html"></a>
+										</div><!--//item-->
+										<div class="item p-3">
+											<div class="row gx-2 justify-content-between align-items-center">
+												<div class="col-auto">
+													<div class="app-icon-holder">
+														<svg width="1em" height="1em" viewBox="0 0 16 16"
+															class="bi bi-receipt" fill="currentColor"
+															xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd"
+																d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
+															<path fill-rule="evenodd"
+																d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
+														</svg>
+													</div>
+												</div><!--//col-->
+												<div class="col">
+													<div class="info">
+														<div class="desc">You have a new invoice. Proin venenatis
+															interdum est.</div>
+														<div class="meta"> 1 day ago</div>
+													</div>
+												</div><!--//col-->
+											</div><!--//row-->
+											<a class="link-mask" href="notifications.html"></a>
+										</div><!--//item-->
+										<div class="item p-3">
+											<div class="row gx-2 justify-content-between align-items-center">
+												<div class="col-auto">
+													<div class="app-icon-holder icon-holder-mono">
+														<svg width="1em" height="1em" viewBox="0 0 16 16"
+															class="bi bi-bar-chart-line" fill="currentColor"
+															xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd"
+																d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z" />
+														</svg>
+													</div>
+												</div><!--//col-->
+												<div class="col">
+													<div class="info">
+														<div class="desc">Your report is ready. Proin venenatis interdum
+															est.</div>
+														<div class="meta"> 3 days ago</div>
+													</div>
+												</div><!--//col-->
+											</div><!--//row-->
+											<a class="link-mask" href="notifications.html"></a>
+										</div><!--//item-->
+										<div class="item p-3">
+											<div class="row gx-2 justify-content-between align-items-center">
+												<div class="col-auto">
+													<img class="profile-image"
+														src="../static/assets/images/profiles/profile-2.png" alt="">
+												</div><!--//col-->
+												<div class="col">
+													<div class="info">
+														<div class="desc">James sent you a new message.</div>
+														<div class="meta"> 7 days ago</div>
+													</div>
+												</div><!--//col-->
+											</div><!--//row-->
+											<a class="link-mask" href="notifications.html"></a>
+										</div><!--//item-->
+									</div><!--//dropdown-menu-content-->
+
+									<div class="dropdown-menu-footer p-2 text-center">
+										<a href="notifications.html">View all</a>
+									</div>
+
+								</div><!--//dropdown-menu-->
+							</div><!--//app-utility-item-->
+							<div class="app-utility-item">
+								<a href="settings.html" title="Settings">
+
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear icon"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd"
+											d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z" />
+										<path fill-rule="evenodd"
+											d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z" />
+									</svg>
+								</a>
+							</div><!--//app-utility-item-->
+
+							<div class="app-utility-item app-user-dropdown dropdown">
+								<a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#"
+									role="button" aria-expanded="false"><img src="../static/assets/images/user.png"
+										alt="user profile"></a>
+								<ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
+									<li><a class="dropdown-item" href="account.html">Account</a></li>
+									<li><a class="dropdown-item" href="settings.html">Settings</a></li>
+									<li>
+										<hr class="dropdown-divider">
+									</li>
+									<li><a class="dropdown-item" href="login.html">Log Out</a></li>
+								</ul>
+							</div><!--//app-user-dropdown-->
+						</div><!--//app-utilities-->
+					</div><!--//row-->
+				</div><!--//app-header-content-->
+			</div><!--//container-fluid-->
+		</div><!--//app-header-inner-->
+		<div id="app-sidepanel" class="app-sidepanel">
+			<div id="sidepanel-drop" class="sidepanel-drop"></div>
+			<div class="sidepanel-inner d-flex flex-column">
+				<a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
+				<div class="app-branding">
+					<a class="app-logo" href="index.html"><img class="logo-icon me-2" src="../static/assets/images/app-logo.svg"
+							alt="logo"><span class="logo-text">system</span></a>
+
+				</div><!--//app-branding-->
+
+				<nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+					<ul class="app-menu list-unstyled accordion" id="menu-accordion">
+						<li class="nav-item">
+							<a class="nav-link " href="/home">
+								<span class="nav-icon">
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd"
+											d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z" />
+										<path fill-rule="evenodd"
+											d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+									</svg>
+								</span>
+								<span class="nav-link-text">首页</span>
+							</a><!--//nav-link-->
+						</li><!--//nav-item-->
+						<li class="nav-item">
+							<a class="nav-link active" href="/orders">
+								<span class="nav-icon">
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd"
+											d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+										<path fill-rule="evenodd"
+											d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z" />
+										<circle cx="3.5" cy="5.5" r=".5" />
+										<circle cx="3.5" cy="8" r=".5" />
+										<circle cx="3.5" cy="10.5" r=".5" />
+									</svg>
+								</span>
+								<span class="nav-link-text">订单页面</span>
+							</a><!--//nav-link-->
+						</li><!--//nav-item-->
+
+						<li class="nav-item">
+							<a class="nav-link" href="/account">
+								<span class="nav-icon">
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd"
+											d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+										<path fill-rule="evenodd"
+											d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z" />
+										<circle cx="3.5" cy="5.5" r=".5" />
+										<circle cx="3.5" cy="8" r=".5" />
+										<circle cx="3.5" cy="10.5" r=".5" />
+									</svg>
+								</span>
+								<span class="nav-link-text">个人页面</span>
+							</a><!--//nav-link-->
+						</li><!--//nav-item-->
+
+						<li class="nav-item">
+							<a class="nav-link"  href="/tongji">
+								<span class="nav-icon">
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd"
+											d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+										<path fill-rule="evenodd"
+											d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z" />
+										<circle cx="3.5" cy="5.5" r=".5" />
+										<circle cx="3.5" cy="8" r=".5" />
+										<circle cx="3.5" cy="10.5" r=".5" />
+									</svg>
+								</span>
+								<span class="nav-link-text">图书统计</span>
+							</a><!--//nav-link-->
+						</li><!--//nav-item-->
+						<li class="nav-item">
+							<a class="nav-link" href="/supplier">
+								<span class="nav-icon">
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd"
+											d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+										<path fill-rule="evenodd"
+											d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z" />
+										<circle cx="3.5" cy="5.5" r=".5" />
+										<circle cx="3.5" cy="8" r=".5" />
+										<circle cx="3.5" cy="10.5" r=".5" />
+									</svg>
+								</span>
+								<span class="nav-link-text">供应商</span>
+							</a><!--//nav-link-->
+						</li><!--//nav-item-->
+						<li class="nav-item has-submenu">
+
+							<a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse"
+								data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
+								<span class="nav-icon">
+
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-files"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd"
+											d="M4 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4z" />
+										<path
+											d="M6 0h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1H4a2 2 0 0 1 2-2z" />
+									</svg>
+								</span>
+								<span class="nav-link-text">Pages</span>
+								<span class="submenu-arrow">
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd"
+											d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+									</svg>
+								</span><!--//submenu-arrow-->
+							</a><!--//nav-link-->
+							<div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
+								<ul class="submenu-list list-unstyled">
+									<li class="submenu-item"><a class="submenu-link"
+											href="notifications.html">Notifications</a></li>
+									<li class="submenu-item"><a class="submenu-link" href="account.html">Account</a>
+									</li>
+									<li class="submenu-item"><a class="submenu-link" href="settings.html">Settings</a>
+									</li>
+								</ul>
+							</div>
+						</li><!--//nav-item-->
+
+					</ul><!--//app-menu-->
+				</nav><!--//app-nav-->
+				<div class="app-sidepanel-footer">
+					<nav class="app-nav app-nav-footer">
+						<ul class="app-menu footer-menu list-unstyled">
+							<li class="nav-item">
+
+								<a class="nav-link" href="settings.html">
+									<span class="nav-icon">
+										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd"
+												d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z" />
+											<path fill-rule="evenodd"
+												d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z" />
+										</svg>
+									</span>
+									<span class="nav-link-text">Settings</span>
+								</a><!--//nav-link-->
+							</li><!--//nav-item-->
+							<li class="nav-item">
+
+								<a class="nav-link" href="http://www.mobanwang.com/">
+									<span class="nav-icon">
+										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd"
+												d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+											<path fill-rule="evenodd"
+												d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+										</svg>
+									</span>
+									<span class="nav-link-text">Download</span>
+								</a><!--//nav-link-->
+							</li><!--//nav-item-->
+							<li class="nav-item">
+
+								<a class="nav-link" href="http://www.mobanwang.com/">
+									<span class="nav-icon">
+										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd"
+												d="M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+											<path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+										</svg>
+									</span>
+									<span class="nav-link-text">License</span>
+								</a><!--//nav-link-->
+							</li><!--//nav-item-->
+						</ul><!--//footer-menu-->
+					</nav>
+				</div><!--//app-sidepanel-footer-->
+
+			</div><!--//sidepanel-inner-->
+		</div><!--//app-sidepanel-->
+	</header><!--//app-header-->
+
+	<div class="app-wrapper">
+		<div class="app-content pt-3 p-md-3 p-lg-4">
+			<h2>订单列表</h2>
+			<style>
+    h2 {
+      margin-bottom: 20px; /* 设置标题底部间距为20像素 */
+    }
+  </style>
+           <button onclick="addOrder()" id=addorderButton class="custom-button left-button" >
+    新增订单
+			</button>
+<!--			<button onclick="addOrder2()" id=addorderButton class="custom-button left-button" >-->
+<!--    新增退货订单-->
+<!--			</button>-->
+			<style>
+    #addorderButton{
+    padding: 8px 16px; background-color: rgba(92, 184, 92, 0.9); color: #fff; border: none; border-radius: 10px; font-size: 14px; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #addbookButton:hover {
+        background-color: rgba(255, 204, 102, 0.9);
+    }
+</style>
+			<span style="margin-right: 20px;"></span>
+			<a href="/home">返回首页</a>
+			<!-- 进货的弹出框 -->
+    			<div id="addOrderModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <div>
+
+            <label for="book_id">图书ID:</label>
+            <input type="text" id="book_id"><br><br>
+
+            <label for="supplier_id">供应商ID:</label>
+            <input type="text" id="supplier_id"><br><br>
+
+            <label for="purchase_price">进货价格:</label>
+            <input type="text" id="purchase_price"><br><br>
+
+            <label for="purchase_quantity">进货数量:</label>
+            <input type="text" id="purchase_quantity"><br><br>
+
+            <button onclick="submitBook()">提交</button>
+            <button onclick="closeAddOrderModal()">取消</button>
+        </div>
+    </div>
+			<!-- 退货的弹出框 -->
+    			<div id="addOrderModal2" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <div>
+
+            <label for="book_id">图书ID:</label>
+            <input type="text" id="book_id"><br><br>
+
+            <label for="supplier_id">供应商ID:</label>
+            <input type="text" id="supplier_id"><br><br>
+
+            <label for="purchase_price">退货价格:</label>
+            <input type="text" id="purchase_price"><br><br>
+
+            <label for="purchase_quantity">退货数量:</label>
+            <input type="text" id="purchase_quantity"><br><br>
+
+            <button onclick="submitBook2()">提交</button>
+            <button onclick="closeAddOrderModal2()">取消</button>
+        </div>
+    </div>
+<!--搜索框样式-->
+			<style>
+    .search-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0px; /* 调整顶部间距 */
+        margin-bottom: 20px; /* 调整底部间距 */
+    }
+    #searchInput {
+        padding: 10px;
+        border: 2px solid #6ad187;
+        border-radius: 50px;
+        margin-right: 10px;
+        font-size: 16px;
+        outline: none;
+        background-color: #f0f0f0;
+    }
+    #searchButton {
+        padding: 10px 20px;
+        background-color: #6ad187;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    #searchButton:hover {
+        background-color: #ffcccc;
+    }
+    #searchInput:hover {
+        background-color: rgba(255, 204, 102, 0.6);
+    }
+</style>
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="输入关键字..." style="width: 200px;">
+    <button onclick="searchBooks()" id="searchButton">search</button>
+</div>
+			<table id="booktable" class="table">
+				<!-- 表头 -->
+				<thead>
+					<tr>
+						<th>Order Id</th>
+						<th>Book Id</th>
+						<th>Supplier Id</th>
+						<th>Price</th>
+						<th>Quantity</th>
+						<th>操作</th> <!-- 新增“操作”列 -->
+					</tr>
+
+				</thead>
+				<tbody id="bookList">
+           	 		{% for order in orders %}
+                		<tr>
+                    		<th>{{order[0]}}</th>
+							<th>{{order[1]}}</th>
+							<th>{{order[2]}}</th>
+							<th>{{order[3]}}</th>
+							<th>{{order[4]}}</th>
+							<td>
+								<button onclick=" showBookInfo('{{order[1]}}')">查看图书信息</button>
+                   			 </td>
+                		</tr>
+            		{% endfor %}
+       		 	</tbody>
+				<!-- 编辑图书的弹出框 -->
+				<div id="editBookModal"  style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+   		 <div class="modal-content">
+<!--        <span class="close" onclick="closeModal()">&times;</span>-->
+
+		<label for="editBookId">ID:</label>
+        <input type="text" id="editBookId" disabled="disabled"><br><br>
+
+		<label for="editTitle">标题:</label>
+        <input type="text" id="editTitle" disabled="disabled"><br><br>
+
+        <label for="editAuthor">作者:</label>
+        <input type="text" id="editAuthor" disabled="disabled"><br><br>
+
+		<label for="editpublicationDate">出版日期:</label>
+            <input type="date" id="editPublicationDate" disabled="disabled"><br><br>
+
+            <label for="editisbn">ISBN:</label>
+            <input type="text" id="editISBN" disabled="disabled"><br><br>
+
+			<label for="editcategoryId">图书类型:</label>
+<!--			<input type="text" id="categoryId"><br><br>-->
+			<select id="editCategoryId">
+            	<option value="1">1.小说</option>
+    			<option value="2">2.历史</option>
+   			 	<option value="3">3.科学</option>
+    			<option value="4">4.艺术</option>
+    			<option value="5">5.自助</option>
+    			<option value="6">6.教育</option>
+    			<option value="7">7.技术</option>
+    			<option value="8">8.旅行</option>
+    			<option value="9">9.健康</option>
+    			<option value="10">10.儿童</option>
+    			<option value="11">11.文学</option>
+    			<option value="12">12.哲学</option>
+        	</select><br><br>
+
+            <label for="editdescription">描述:</label><br>
+            <textarea id="editDescription" rows="4" cols="50" disabled="disabled"></textarea><br><br>
+
+            <label for="editprice">价格:</label>
+            <input type="text" id="editPrice" disabled="disabled"><br><br>
+
+            <label for="editquantityAvailable">可用数量:</label>
+            <input type="text" id="editQuantityAvailable" disabled="disabled"><br><br>
+
+	<button onclick="closeeditBookModal()">close</button>
+    </div>
+</div>
+	</table>
+
+
+
+<!--翻页按钮-->
+			<div class="pagination">
+    <button onclick="previousPage()" class="pagination-button">上一页</button>
+    <span id="currentPage" class="current-page">1</span> <!-- 当前页数 -->
+    <button onclick="nextPage()" class="pagination-button">下一页</button>
+</div>
+
+		</div><!--//app-content-->
+	</div><!--//app-wrapper-->
+
+	<!-- Javascript -->
+	<script src="../static/assets/plugins/popper.min.js"></script>
+	<script src="../static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Charts JS -->
+	<script src="../static/assets/plugins/chart.js/chart.min.js"></script>
+	<script src="../static/assets/js/index-charts.js"></script>
+
+	<!-- Page Specific JS -->
+	<script src="../static/assets/js/app.js"></script>
+<!--翻页按钮样式-->
+	<style>
+	.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* 适当的间距 */
+}
+
+.pagination-button {
+    padding: 6px 6px;
+    background-color: #90EE90;
+    color: black;
+    border: none;
+     border-radius: 50px;
+    font-size: 12px;
+    cursor: pointer;
+    margin:0 50 px; /* 按钮之间的间距 */
+}
+
+.current-page {
+    font-size: 18px;
+    margin: 0 10px;
+    color: #333; /* 如果需要不同的颜色，可以自行调整 */
+}
+
+</style>
+<!--显示订单信息-->
+			<script>
+        function showbook_info(bookId) {
+
+            var modal = document.getElementById('editBookModal');
+            modal.style.display = 'block';
+
+			editBook(bookId)
+            }
+        function editBook(bookId) {
+
+            var bookInfo = {
+				book_id:bookId,
+                title: title,
+                author: author,
+                publication_date: publication_date,
+                isbn:  isbn,
+                categoryId: categoryId,
+                description: description,
+                price: price,
+                quantity_available:quantity_available,
+
+            };
+
+            // 将获取到的书籍信息填充到表单中
+            document.getElementById('editBookId').value = bookInfo.book_id;
+            document.getElementById('editTitle').value = bookInfo.title;
+            document.getElementById('editAuthor').value = bookInfo.author;
+            document.getElementById('editPublicationDate').value = bookInfo.publication_date;
+            document.getElementById('editISBN').value = bookInfo.isbn;
+            document.getElementById('editCategoryId').value = bookInfo.categoryId; // 假设分类字段为 categoryId
+            document.getElementById('editDescription').value = bookInfo.description;
+            document.getElementById('editPrice').value = bookInfo.price;
+            document.getElementById('editQuantityAvailable').value = bookInfo.quantity_available;
+            // 其他字段
+        }
+
+
+ 			function closeeditBookModal() {
+       		     var modal = document.getElementById('editBookModal');
+        		    modal.style.display = 'none';
+     		   }
+
+    </script>
+			<script>
+  function showBookInfo(bookId) {
+			var modal = document.getElementById('editBookModal');
+            modal.style.display = 'block';
+
+    fetch(`/book-info/${bookId}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Book not found');
+        }
+        return response.json();
+      })
+      .then(data => {
+      document.getElementById('editBookId').value = data.book_id;
+      document.getElementById('editTitle').value = data.title;
+      document.getElementById('editAuthor').value = data.author;
+      document.getElementById('editPublicationDate').value = data.publication_date;
+      document.getElementById('editISBN').value = data.isbn;
+
+        //document.getElementById('isbn').innerHTML = `ISBN: ${data.isbn}`;
+
+         document.getElementById('editISBN').value = data.isbn;
+         document.getElementById('editCategoryId').value = data.category_id; // 假设分类字段为 categoryId
+         document.getElementById('editDescription').value = data.description;
+         document.getElementById('editPrice').value = data.price;
+         document.getElementById('editQuantityAvailable').value = data.quantity_available;
+
+      })
+      .catch(error => {
+        console.error(error);
+        alert('图书不存在');
+      });
+  }
+
+  function hideBookInfo() {
+    document.getElementById('bookInfo').style.display = 'none';
+  }
+</script>
+
+
+	<!--			新增订单-->
+			<script>
+		function addOrder() {
+            var modal = document.getElementById('addOrderModal');
+            modal.style.display = 'block';
+        }
+
+        function closeAddOrderModal() {
+            var modal = document.getElementById('addOrderModal');
+            modal.style.display = 'none';
+        }
+
+        function submitBook() {
+        	var book_id = document.getElementById('book_id').value;
+            var supplier_id = document.getElementById('supplier_id').value;
+            var purchase_price = document.getElementById('purchase_price').value;
+            var purchase_quantity = document.getElementById('purchase_quantity').value;
+
+
+            // 发送数据到后端
+            if (book_id && supplier_id && purchase_price && purchase_quantity ) {
+                fetch('/add_order', {
+                    method: 'POST',
+                    body: JSON.stringify({
+
+                        book_id: book_id,
+                        supplier_id: supplier_id,
+                        purchase_price: purchase_price,
+                    	purchase_quantity:purchase_quantity
+                    }), // 所有字段
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(response => {
+                    // 处理后端响应
+                    closeAddOrderModal();
+                    location.reload();
+                    // 可以刷新页面或其他操作来更新书籍列表
+                });
+            } else {
+                alert("请填写所有字段！");
+            }
+        }
+    </script>
+
+<script>
+		function addOrder2() {
+            var modal = document.getElementById('addOrderModal2');
+            modal.style.display = 'block';
+        }
+
+        function closeAddOrderModal2() {
+            var modal = document.getElementById('addOrderModal2');
+            modal.style.display = 'none';
+        }
+
+        function submitBook2() {
+        	var book_id = document.getElementById('book_id').value;
+            var supplier_id = document.getElementById('supplier_id').value;
+            var purchase_price = document.getElementById('purchase_price').value;
+            var purchase_quantity = document.getElementById('purchase_quantity').value;
+
+
+            // 发送数据到后端
+            if (book_id && supplier_id && purchase_price && purchase_quantity ) {
+                fetch('/add_order', {
+                    method: 'POST',
+                    body: JSON.stringify({
+
+                        book_id: book_id,
+                        supplier_id: supplier_id,
+                        purchase_price: purchase_price,
+                    	purchase_quantity:purchase_quantity
+                    }), // 所有字段
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(response => {
+                    // 处理后端响应
+                    closeAddOrderModal2();
+                    location.reload();
+                    // 可以刷新页面或其他操作来更新书籍列表
+                });
+            } else {
+                alert("请填写所有字段！");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
